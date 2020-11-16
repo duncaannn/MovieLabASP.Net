@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "MovieForm";
+}
+@model Movie
+<style>
+    h1 {
+        font-family: Verdana;
+        color: #90906F;
+    }
+    body {
+        background-color: #6F6F90;
+        color: #6F7F90;
+        font-family: helvetica;
+        font-size: 140%;
+        @*color: pink;*@
+        border-color: #806F90;
+    }
+
+</style>
+
+<h1>Movie Registration</h1>
+    <form action="MovieForm" method="post">
+         <input type="number" name="ID" value="What is the movie ID?" required placeholder="Movie ID" /><br />
+        <input type="text" name="Title" value="" required placeholder="Title" /><br />
+         
+        @Html.DropDownListFor(m=>m.Genre,
+   new SelectList(Enum.GetValues(typeof(Genre))), 
+   "Select Genre")<br/>
+
+        <input type="number" name="Year" value="" required placeholder="Year" min="1880" max="2020"/><br />
+        <input type="text" name="Actors" value="" required placeholder="Actors" /><br />
+        <input type="text" name="Director" value="" required placeholder="Director"/>
+        <input type="submit"value="Submit"/>
+
+
+    </form>
+
+
+@*<table>
+        <tr>
+           <th>ID</th>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>Year</th>
+            <th>Actors</th>
+            <th>Director</th>
+
+        </tr>
+    </table>*@
+
+
