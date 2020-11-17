@@ -9,19 +9,17 @@ namespace MovieLabASP.Net.Models
     {
         public List<Movie> Movies { get; set; }
 
-        //MovieView movieInputs = new MovieView()
-        //{
-        //    Movies = new List<Movie>()
-        
-        //};
+       public MovieView() { }
+        public MovieView(List<Movie> Movies)
+        { this.Movies = Movies; }
 
-        public List<Movie> PrintMovies()
-        {
-            foreach(var movie in Movies)
-            {
-                Console.WriteLine(movie);
-            }
-            return Movies;
-        }
+        //List<Movie> Movies = new List<Movie>();
+       
+
+
+
+
+       
+
     }
 }

@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "MovieForm";
 }
-@model Movie
+
 <style>
     h1 {
         font-family: Verdana;
@@ -16,26 +16,78 @@
         @*color: pink;*@
         border-color: #806F90;
     }
-
 </style>
 
-<h1>Movie Registration</h1>
-    <form action="MovieForm" method="post">
-         <input type="number" name="ID" value="What is the movie ID?" required placeholder="Movie ID" /><br />
-        <input type="text" name="Title" value="" required placeholder="Title" /><br />
-         
-        @Html.DropDownListFor(m=>m.Genre,
-   new SelectList(Enum.GetValues(typeof(Genre))), 
-   "Select Genre")<br/>
-
-        <input type="number" name="Year" value="" required placeholder="Year" min="1880" max="2020"/><br />
-        <input type="text" name="Actors" value="" required placeholder="Actors" /><br />
-        <input type="text" name="Director" value="" required placeholder="Director"/>
-        <input type="submit"value="Submit"/>
 
 
-    </form>
+@model MovieLabASP.Net.Models.Movie
 
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @using (Html.BeginForm("DisplayMovie2", "DisplayMovie2", FormMethod.Post))
+    {
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th colspan="2" align="center">Movie Registration</th>
+            </tr>
+            <tr>
+                <td>Id:</td>
+                <td>
+                    @Html.TextBoxFor(m => m.ID)
+                </td>
+            </tr>
+            <tr>
+
+                <td>Title:</td>
+                <td>
+                    @Html.TextBoxFor(m => m.Title)
+                </td>
+            </tr>
+            <tr>
+                <td>Genre:</td>
+                <td>
+                    @Html.DropDownListFor(m => m.Genre,
+       new SelectList(Enum.GetValues(typeof(Genre))),
+       "Select Genre")
+                </td>
+            </tr>
+            <tr>
+
+                <td>Year:</td>
+                <td>
+                    @Html.TextBoxFor(m => m.Year)
+                </td>
+            </tr>
+            <tr>
+                <td>Actors:</td>
+                <td>
+                    @Html.TextBoxFor(m => m.Actors)
+                </td>
+            </tr>
+            <tr>
+                <td>Directors:</td>
+                <td>
+                    @Html.TextBoxFor(m => m.Directors)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Submit" /></td>
+            </tr>
+
+        </table>
+
+
+    }
+</body>
+</html>
 
 @*<table>
         <tr>
